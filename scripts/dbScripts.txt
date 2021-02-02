@@ -1,0 +1,24 @@
+//Create a role as "admin"
+
+//Create a database as "kododb" on postgreSQL and set the ownership to the role "admin"
+
+//Use the below schema to create the table
+CREATE TABLE "Titles"
+(
+  id character varying(255) NOT NULL,
+  name character varying(255),
+  image character varying(255),
+  description character varying(255),
+  "dateLastEdited" timestamp with time zone,
+  "createdAt" timestamp with time zone,
+  "updatedAt" timestamp with time zone,
+  CONSTRAINT "titleId_pkey" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "Titles"
+  OWNER TO admin;
+
+//Insert few rows from the mock json data like below
+Insert into "Titles" values('A045252f0f22510898542d3123d68b6','Customer Assurance Liaison','http://lorempixel.com/640/480','Vel voluptatem id repudiandae aut omnis. Deleniti tempore aliquam quia magnam eos. Sunt saepe nisi delectus.','2018-06-19T12:33:25.545Z', '2018-05-19T12:33:25.545Z', '2018-05-19T12:33:25.545Z' );
